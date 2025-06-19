@@ -55,5 +55,18 @@ public class AppointmentController {
             return ResponseEntity.badRequest().body("Cita no encontrada o no se pudo eliminar");
         }
     }
+
+
+@GetMapping("/test-db")
+public ResponseEntity<?> testDatabaseConnection() {
+    try {
+        // Intenta contar las citas en la base de datos
+        long count = service.listAll().size();
+        return ResponseEntity.ok("Conexión exitosa. Total de citas: " + count);
+    } catch (Exception e) {
+        return ResponseEntity.status(500).body("Error de conexión a la base de datos: " + e.getMessage());
+    }
+}
+
     
 }
