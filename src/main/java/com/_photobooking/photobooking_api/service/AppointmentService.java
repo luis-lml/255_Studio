@@ -4,31 +4,49 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com._photobooking.photobooking_api.model.Appointment;
-import com._photobooking.photobooking_api.repository.Repository;
+import com._photobooking.photobooking_api.repository.AppointmentRepository;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AppointmentService {
 
     @Autowired
-    private Repository repository;
+    private AppointmentRepository appointmentRepository;
 
-    public Appointment save(Appointment appointment) throws Exception { 
-        if (!repository.findByDate(appointment.getDate()).isEmpty()) {
-            throw new Exception("Hora no disponible para la fecha seleccionada");
-        }
-        return repository.save(appointment);
+    public List<Appointment> findAll() {
+        return appointmentRepository.findAll();
     }
 
-    public List<Appointment> listAll() {
-        return repository.findAll();
+    public Optional<Appointment> findById(Long id) {
+        return appointmentRepository.findById(id);
+    }
+
+    public Appointment save(Appointment appointment) {
+        return appointmentRepository.save(appointment);
     }
 
     public boolean delete(Long id) {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
+        if (appointmentRepository.existsById(id)) {
+            appointmentRepository.deleteById(id);
             return true;
+        } else {
+            return false;
         }
-        return false;
     }
+
+     public long count() {
+        return appointmentRepository.count();
+    }
+
+    // public List<Appointment> findByAppointmentDate(LocalDate date) {
+    //     return appointmentRepository.findByAppointmentDate(date);
+    // }
+
+    public List<Appointment> findByBookingDate(LocalDate date) {
+        return appointmentRepository.findByBookingDate(date);
+    }
+
+   
 }
