@@ -9,7 +9,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AppointmentRepository extends JpaRepository<Appointment, Long> {
     List<Appointment> findByBookingDate(LocalDate bookingDate);
-
-    // List<Appointment> findByAppointmentDate(LocalDate date);
 }
-

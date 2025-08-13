@@ -4,7 +4,11 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import jakarta.persistence.*;
+import jakarta.validation.constraints.FutureOrPresent;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,18 +24,24 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-     @Column(name = "client_id", nullable = false)
-    private Integer clientId;
+    @NotNull(message = "El cliente no puede ser nulo.")
+    @ManyToOne(cascade = CascadeType.PERSIST) // Opcional: para guardar el cliente junto con la cita
+    @JoinColumn(name = "client_id", nullable = false)
+    private Client client;
 
-    @Column(name = "session_type_id", nullable = false, length = 30)
-    private String sessionTypeId;
+    @NotNull(message = "El tipo de sesión no puede ser nulo.")
+    @ManyToOne
+    @JoinColumn(name = "session_type_id", nullable = false)
+    private SessionType sessionType;
 
     @Column(name = "portrait_package_id")
     private Integer portraitPackageId;
-
+    
+    @NotNull(message = "La fecha de la cita no puede ser nula.")
+    @FutureOrPresent(message = "La fecha de la cita debe ser hoy o en el futuro.")
     @Column(name = "booking_date", nullable = false)
     private LocalDate bookingDate;
-
+    @NotNull(message = "La hora de la cita no puede ser nula.")
     @Column(name = "booking_time", nullable = false)
     private LocalTime bookingTime;
 
@@ -39,9 +49,11 @@ public class Appointment {
     private String comments;
 
     @Enumerated(EnumType.STRING)
+    @NotNull
     @Column(name = "status", nullable = false)
     private Status status = Status.pending;
 
+    @CreationTimestamp
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
@@ -49,33 +61,4 @@ public class Appointment {
         pending, confirmed, cancelled
     }
 
-
-    // Getters y setters
-
-    // public Long getId() { return id; }
-    // public void setId(Long id) { this.id = id; }
-
-    // public Integer getClientId() { return clientId; }
-    // public void setClientId(Integer clientId) { this.clientId = clientId; }
-
-    // public String getSessionTypeId() { return sessionTypeId; }
-    // public void setSessionTypeId(String sessionTypeId) { this.sessionTypeId = sessionTypeId; }
-
-    // public Integer getPortraitPackageId() { return portraitPackageId; }
-    // public void setPortraitPackageId(Integer portraitPackageId) { this.portraitPackageId = portraitPackageId; }
-
-    // public LocalDate getBookingDate() { return bookingDate; }
-    // public void setBookingDate(LocalDate bookingDate) { this.bookingDate = bookingDate; }
-
-    // public LocalTime getBookingTime() { return bookingTime; }
-    // public void setBookingTime(LocalTime bookingTime) { this.bookingTime = bookingTime; }
-
-    // public String getComments() { return comments; }
-    // public void setComments(String comments) { this.comments = comments; }
-
-    // public Status getStatus() { return status; }
-    // public void setStatus(Status status) { this.status = status; }
-
-    // public LocalDateTime getCreatedAt() { return createdAt; }
-    // public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
 }
