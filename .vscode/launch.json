@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-PhotobookingApiApplication<photobooking-api>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com._photobooking.photobooking_api.PhotobookingApiApplication",
+            "projectName": "photobooking-api",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
