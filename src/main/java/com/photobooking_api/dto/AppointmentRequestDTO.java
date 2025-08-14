@@ -1,4 +1,4 @@
-package com._photobooking.photobooking_api.dto;
+package com.photobooking_api.dto;
 
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.Email;

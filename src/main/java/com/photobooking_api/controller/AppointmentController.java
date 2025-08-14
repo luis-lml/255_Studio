@@ -1,10 +1,10 @@
-package com._photobooking.photobooking_api.controller;
+package com.photobooking_api.controller;
 
-import com._photobooking.photobooking_api.dto.AppointmentRequestDTO;
-import com._photobooking.photobooking_api.dto.AppointmentResponseDTO;
-import com._photobooking.photobooking_api.mapper.AppointmentMapper;
-import com._photobooking.photobooking_api.model.Appointment;
-import com._photobooking.photobooking_api.service.AppointmentService;
+import com.photobooking_api.dto.AppointmentRequestDTO;
+import com.photobooking_api.dto.AppointmentResponseDTO;
+import com.photobooking_api.mapper.AppointmentMapper;
+import com.photobooking_api.model.Appointment;
+import com.photobooking_api.service.AppointmentService;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;

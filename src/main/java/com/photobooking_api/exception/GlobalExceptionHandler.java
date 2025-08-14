@@ -1,4 +1,4 @@
-package com._photobooking.photobooking_api.exception;
+package com.photobooking_api.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

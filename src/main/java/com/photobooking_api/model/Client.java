@@ -1,4 +1,4 @@
-package com._photobooking.photobooking_api.model;
+package com.photobooking_api.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

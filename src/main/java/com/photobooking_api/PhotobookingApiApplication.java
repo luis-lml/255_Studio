@@ -1,4 +1,4 @@
-package com._photobooking.photobooking_api;
+package com.photobooking_api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

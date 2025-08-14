@@ -1,6 +1,6 @@
-package com._photobooking.photobooking_api.repository;
+package com.photobooking_api.repository;
 
-import com._photobooking.photobooking_api.model.SessionType;
+import com.photobooking_api.model.SessionType;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

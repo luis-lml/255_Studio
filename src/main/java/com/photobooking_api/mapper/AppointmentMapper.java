@@ -1,8 +1,8 @@
 
-package com._photobooking.photobooking_api.mapper;
+package com.photobooking_api.mapper;
 
-import com._photobooking.photobooking_api.dto.AppointmentResponseDTO;
-import com._photobooking.photobooking_api.model.Appointment;
+import com.photobooking_api.dto.AppointmentResponseDTO;
+import com.photobooking_api.model.Appointment;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -1,6 +1,6 @@
-package com._photobooking.photobooking_api.repository;
+package com.photobooking_api.repository;
 
-import com._photobooking.photobooking_api.model.Appointment;
+import com.photobooking_api.model.Appointment;
 
 import java.time.LocalDate;
 import java.util.List;
