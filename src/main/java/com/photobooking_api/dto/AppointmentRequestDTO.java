@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
+import java.util.Map;
 
 @Data
 public class AppointmentRequestDTO {
@@ -23,17 +23,12 @@ public class AppointmentRequestDTO {
     @Email(message = "El formato del email no es válido.")
     private String clientEmail;
 
-    @NotNull(message = "El ID del tipo de sesión no puede ser nulo.")
-    private Long sessionTypeId;
-
-    private Integer portraitPackageId;
-
     @NotNull(message = "La fecha de la cita no puede ser nula.")
     @FutureOrPresent(message = "La fecha de la cita debe ser hoy o en el futuro.")
     private LocalDate bookingDate;
 
     @NotNull(message = "La hora de la cita no puede ser nula.")
-    private LocalTime bookingTime;
+    private Map<String, Integer> bookingTime;
 
     private String comments;
 }

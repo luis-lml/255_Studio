@@ -29,9 +29,8 @@ public class Appointment {
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 
-    @NotNull(message = "El tipo de sesión no puede ser nulo.")
     @ManyToOne
-    @JoinColumn(name = "session_type_id", nullable = false)
+    @JoinColumn(name = "session_type_id")
     private SessionType sessionType;
 
     @Column(name = "portrait_package_id")
