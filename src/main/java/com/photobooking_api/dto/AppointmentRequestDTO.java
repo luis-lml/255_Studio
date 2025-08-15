@@ -15,6 +15,9 @@ public class AppointmentRequestDTO {
     @NotBlank(message = "El nombre del cliente no puede estar vacío.")
     private String clientName;
 
+    @NotBlank(message = "El apellido del cliente no puede estar vacío.")
+    private String lastName;
+
     // El email es una buena forma de identificar a un cliente
     @NotBlank(message = "El email del cliente no puede estar vacío.")
     @Email(message = "El formato del email no es válido.")

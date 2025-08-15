@@ -61,6 +61,7 @@ public class AppointmentService {
                 .orElseGet(() -> {
                     Client newClient = new Client();
                     newClient.setName(name);
+                    newClient.setLastname(newClient.getLastname());
                     newClient.setEmail(email);
                     return clientRepository.save(newClient);
                 });

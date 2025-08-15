@@ -46,6 +46,7 @@ public class DataInitializer implements CommandLineRunner {
             .orElseGet(() -> {
                 Client newClient = new Client();
                 newClient.setName("Cliente de Prueba");
+                newClient.setLastname("Apellido de Prueba");
                 newClient.setEmail("test@example.com");
                 return clientRepository.save(newClient);
             });
